@@ -1,33 +1,55 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/kHqMK6zN)
-Copy a project from one of these `DJANGO FORMS` or `DJANGO VIEW/TEMPLATES` sprints
+# Library Management System
 
-Create a test using Selenium.
-The test case involves verifying the input of correct and incorrect credentials during the login process.
+This is a pet project developed to manage a library system effectively. The project is built with Django and consists of the following apps:
 
-### Pre-requisites:
+## Project Structure
 
-* Access to the website
-* Valid user account
-### Steps:
+- **Authentication**: Handles user authentication, registration, and role-based access.
+- **Books**: Manages book-related functionality such as creation, listing, and updates.
+- **Authors**: Manages author-related information.
+- **Orders**: Handles borrowing and return orders for library books.
+- **Library (Main App)**: Central app that connects all functionalities.
 
-1. Open a web browser and navigate to the homepage of the website.
-2. Click on the "Login" button in the top right corner of the page.
-3. Enter valid login credentials:
-   * Username: valid username
-   * Password: valid password
-4. Click the "Login" button.
-5. Verify that the user is successfully logged in to the website.
-6. Click on the "Logout" button in the top right corner of the page.
-7. Verify that the user has successfully logged out of the account.
-8. Enter invalid login credentials:
-9. Username: incorrect username
-10. Password: incorrect password
-11. Click the "Login" button.
-12. Verify that the user is not able to log in to the website and receives an appropriate error message.
+Each app includes detailed models, templates, and views to provide a seamless library management experience.
 
-## Expected Result:
+---
 
-* The user should be able to successfully log in to the website when valid credentials are entered.
-* The user should be able to successfully log out of the account when clicking the "Logout" button.
-* The user should not be able to log in to the website when invalid credentials are entered and should receive an appropriate error message.
-### AND RECORD SHORT VIDEO (2-10MIN) THAT SHOWS FUNCTIONALITY IN ACTION
+## Features
+
+- User authentication with role-based access control (librarians and visitors).
+- Comprehensive management of books and authors.
+- Order tracking for library operations.
+- Modular structure for ease of scaling and maintenance.
+
+---
+
+## Installation and Setup
+
+Follow these steps to set up the project on your local machine:
+
+1. **Clone the Repository**  
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
+2. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+3. **Configure the Database**
+   - Create a PostgreSQL database.
+   - Update the database connection string in settings.py under the DATABASES section.
+4. **Apply Migrations**
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+5. **Run the Development Server**
+   ```bash
+   python manage.py runserver
+6. **Access the Application**
+   Open your browser and navigate to http://localhost:8000.
+
+## Technologies used
+
+  - Backend: Django (Python)
+  - Database: PostgreSQL
+  - Frontend: Django Templates, HTML, CSS
+  - Authentication: CustomUser model with role-based access
