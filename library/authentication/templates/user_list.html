@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>User List</h2>
+<table>
+    <tr>
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Role</th>
+        <th>Actions</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.email }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td>{{ user.role|yesno:"librarian,visitor" }}</td>
+        <td><a href="{% url 'user_detail' user.id %}">View Details</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

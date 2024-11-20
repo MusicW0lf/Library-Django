@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+   <h2>Add new Author</h2>
+   <form method="post" action="/author/create/">
+        {% csrf_token %}
+        <label for="name">Author Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="surname">Author Surname:</label><br>
+        <input type="text" id="surname" name="surname" required><br><br>
+        <label for="patronymic">Author Patronymic:</label><br>
+        <input type="text" id="patronymic" name="patronymic" required><br><br>
+
+
+        <button type="submit">Add Author</button>
+    </form>
+
+
+{% endblock %}
+
+
+

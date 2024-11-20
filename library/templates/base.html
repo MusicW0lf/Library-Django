@@ -1,0 +1,75 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secret Library</title>
+    <!-- Link to a CSS file or include styles directly -->
+    <style>
+        body {
+            background-color: #121212; /* Dark background */
+            color: #FFFFFF;            /* Light font */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid #444;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #1E1E1E;
+            padding: 10px 0;
+        }
+        .menu a {
+            color: #FFFFFF;
+            margin: 0 15px;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+        .menu a:hover {
+            background-color: #333333;
+        }
+        .content {
+            padding: 20px;
+            min-height: 80vh; /* Ensures footer is at the bottom */
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1E1E1E;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Secret Library</h1>
+    </div>
+    <div class="menu">
+        <a href="/authentication/">Auth</a>
+        <a href="/book/">Books</a>
+        {% if user.role == 1 %}
+        <a href="/authentication/users/">Users</a>
+        {% endif %}
+        <a href="/order/">Orders</a>
+        <a href="/author/">Authors</a>
+    </div>
+    <div class="content">
+        {% block content %}
+
+
+        {% endblock %}
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Library Management System</p>
+    </div>
+</body>
+</html>

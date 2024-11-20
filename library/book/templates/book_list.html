@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="font-size: 24px;">Book List</h1>
+
+<form method="GET" action="{% url 'book_list' %}">
+    <input type="text" name="query" placeholder="Enter author name, book title, or book count" value="{{ query }}">
+    <input type="submit" value="Filter">
+</form>
+
+{% if books %}
+    <ul style="list-style-type: none; padding: 0;">
+    {% for book in books %}
+        <li style="line-height: 1.6; margin-bottom: 10px;">
+            <a href="{% url 'book_detail' book.id %}"><strong style="font-size: 18px;">{{ book.name }}</strong></a> by 
+            <span>{{ book.authors.all|join:", " }}</span>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No books available.</p>
+{% endif %}
+{% endblock %}

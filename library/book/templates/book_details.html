@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ book.name }}</h1>
+<p>Authors:
+    {% for author in book.authors.all %}
+        {{ author.name }} {{ author.surname }}{% if not forloop.last %}, {% endif %}
+    {% empty %}
+        No authors available.
+    {% endfor %}
+</p>
+<p>Description: {{ book.description }}</p>
+<p>Amount: {{book.count}}</p>
+<p>Item Id: {{book.id}}</p>
+{% endblock %}

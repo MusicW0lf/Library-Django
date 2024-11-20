@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>User Details</h2>
+<p><strong>Email:</strong> {{ user.email }}</p>
+<p><strong>First Name:</strong> {{ user.first_name }}</p>
+<p><strong>Middle Name:</strong> {{ user.middle_name }}</p>
+<p><strong>Last Name:</strong> {{ user.last_name }}</p>
+<p><strong>Role:</strong> {{ user.role|yesno:"librarian,visitor" }}</p>
+<p><strong>Id:</strong> {{ user.id }}</p>
+<p><strong>Registration time:</strong> {{ user.created_at }}</p>
+{% endblock %}
